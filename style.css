@@ -1,0 +1,1076 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    height: 100vh;
+    background-color: #0e0e0e;
+    
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 2rem;
+    width: 100%; /* Ensure it takes full width */
+    z-index: 1000;
+}
+
+
+
+li {
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ff0000;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%); /* Starts from above */
+        opacity: 0; /* Initially hidden */
+    }
+    100% {
+        transform: translateY(0); /* Ends at normal position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideIn 6s ease-out; /* Add animation here */
+    pointer-events: none;
+
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle-button {
+    color: #ff0000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.navbar .toggle-button,
+.navbar .logo,
+.navbar .links {
+    opacity: 0; /* Initially set opacity to 0 for all elements */
+    animation: fadeIn 6s ease-out forwards;
+    animation-delay: 0.5s; /* Delay slightly for a more natural reveal */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.loading-page {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, #000000, #930f0f, #560909);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;  
+}
+
+
+#svg {
+    width: 150px;
+    height: 150px;
+}
+
+#svg path {
+    fill: none; 
+    stroke: white; 
+    stroke-width: 5;
+    stroke-dasharray: 3000;
+    animation: draw 6s ease;
+    filter: drop-shadow(0px 0px 5px rgb(241, 87, 15));
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 3000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+
+
+.name-container {
+    height: 30px;
+    overflow: hidden;
+}
+
+.logo-name {
+    color: #ffff;
+    font-size: 20px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+
+nav.navbar {
+    position: relative;
+    z-index: 1;  
+}
+
+/* responsive design */
+ @media(max-width: 992px){
+
+    .typewriter {
+        font-size: 24px;  /* Smaller font size on tablets and mobile */
+        animation: typing 6s steps(30) forwards, blink 5s step-end infinite alternate; /* Adjust the steps if necessary */
+    }
+
+    .navbar .links
+    {
+        display: none;
+    }
+
+    .navbar .toggle-button{
+        display: block;
+    }
+    .home {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+        padding: 1.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .home h1 {
+        font-size: 3rem; /* Adjust font size on smaller screens */
+    }
+
+    .home p {
+        font-size: 20px; /* Adjust font size on smaller screens */
+    }
+    
+    
+ }
+
+ 
+ .dropdown_menu {
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;  /* Prevents content from overflowing */
+    max-height: 0;  /* Start collapsed */
+    opacity: 0;  /* Invisible at start */
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(-10px); /* Moves it slightly up */
+}
+
+.dropdown_menu.open {
+    max-height: 300px; /* Adjust based on content */
+    opacity: 1;
+    transform: translateY(0); /* Moves it back down */
+}
+
+.dropdown_menu a {
+    display: block; /* Ensures full clickable area */
+    text-decoration: none;
+    color: #ff0000;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.8rem;
+    text-align: center;
+}
+
+.dropdown_menu a:hover {
+    background-color: #930f0f;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+}
+
+@media(max-width: 576px){
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+
+    .typewriter {
+        font-size: 18px;  /* Even smaller font size on small devices */
+        animation: typing 5s steps(24) forwards, blink 5s step-end infinite alternate; /* Further adjust the steps for very small screens */
+    }
+
+}
+
+
+.home {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;  /* This centers the content both horizontally and vertically */
+    gap: 2rem;
+    padding: 2rem; /* Add padding to prevent text from touching the edges */
+}
+
+
+
+.title span {
+    --total: calc(var(--duration) + var(--delay));
+    position: relative;
+    display: block;
+    color: transparent; /* Color is initially transparent for animation */
+    font-size: 4rem;
+    color: #ff0000; /* This will apply the text color */
+    font-weight: 600; /* Apply font weight */
+    margin-bottom: 1rem;
+    overflow: hidden;
+    animation: revealText 1s var(--total) forwards;
+}
+
+.title span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #ff0000;
+    animation: 
+        rollIn var(--duration) var(--delay) forwards,
+        rollOut var(--duration) var(--total) forwards;
+}
+
+.nama-text span:nth-child(2)::after {
+    border-top: 3px solid #896ab9;
+}
+
+@keyframes revealText {
+    to {
+        color: #ff0000; /* Changes color to white after animation */
+    }
+}
+
+@keyframes rollIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes rollOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(105%);
+    }
+}
+
+
+.typewriter {
+    width: 0;
+    animation: typing 6s steps(38) forwards, blink 5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 38ch; /* Make sure this matches the length of your text */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  :root {
+    --clr-1: #000000;
+    --clr-2: #ff0000;
+    --clr-3: #4e0f0f;
+    --clr-4: #8f2d2d;
+    --clr-5: #af3131;
+  }
+   
+  .card {
+    height: 60vh;
+    aspect-ratio: 1 / 1.5;
+    background: var(--clr-1);
+    border-radius: 0.5rem;
+    background-image: url(hmpic.png);
+    position: relative;
+    z-index: 1;
+    opacity: 0; /* Initially set opacity to 0 for all elements */
+    animation: fadeIn 10s ease-out forwards;
+    animation-delay: s; /* Delay slightly for a more natural reveal */
+  }
+  
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
+    z-index: -1;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      var(--clr-3),
+      var(--clr-4),
+      var(--clr-5),
+      var(--clr-4),
+      var(--clr-3)
+    );
+    border-radius: inherit;
+    animation: rotation 5s linear infinite;
+  }
+  
+  .card::after {
+    filter: blur(3.5rem);
+  }
+  
+  @keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
+  }
+
+
+  .card img {
+    position: absolute; /* Ensure the image covers the entire card */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image fill the card horizontally */
+    height: 100%; /* Make the image fill the card vertically */
+    object-fit: cover; /* Maintain aspect ratio while covering the card area */
+    z-index: 1; /* Place the image behind other content in the card */
+}
+
+
+.about {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;  /* This centers the content both horizontally and vertically */
+    gap: 2rem;
+    padding: 2rem; /* Add padding to prevent text from touching the edges */
+}
+
+
+
+
+.about-img {
+    width: 500px;  /* Set width to 50px */
+    height: 500px; /* Set height to 50px */
+    aspect-ratio: 1 / 1; /* Ensure the image remains a square */
+    background: var(--clr-1);
+    border-radius: 0.5rem;
+    background-image: url(hmpic.png);
+    position: relative;
+    z-index: 1;
+    opacity: 0; /* Initially set opacity to 0 for all elements */
+    animation: fadeIn 10s ease-out forwards;
+    animation-delay: 1s; /* Delay slightly for a more natural reveal */
+}
+
+.about-img::before,
+.about-img::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
+    z-index: -1;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      var(--clr-3),
+      var(--clr-4),
+      var(--clr-5),
+      var(--clr-4),
+      var(--clr-3)
+    );
+    border-radius: inherit;
+    animation: rotation 5s linear infinite;
+}
+
+.about-img::after {
+    filter: blur(3.5rem);
+}
+
+@keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
+}
+
+.about-img img {
+    position: absolute; /* Ensure the image covers the entire card */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image fill the card horizontally */
+    height: 100%; /* Make the image fill the card vertically */
+    object-fit: cover; /* Maintain aspect ratio while covering the card area */
+    z-index: 1; /* Place the image behind other content in the card */
+}
+
+.about-text h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 30px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #df5620, #da2e10, #ff9317,#fa6a6a, #ff0000);
+        background-size: 200%;
+        background-clip: text;
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+        animation: animate-gradient 2.5s linear infinite;
+        margin-bottom: 50px;
+}
+
+@keyframes animate-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+
+.about-text {
+    top: 10px; /* Adjust this value to move the text up or down */
+    left: 0;
+    width: 100%; /* Ensures the text spans across the entire width */
+    color: #ffffff;
+    text-align: justify;
+    margin-right: 100px;
+}
+
+.services {
+    height: 100vh; /* Make the section take up the full viewport height */
+    width: 100%; /* Ensure it spans the full width */
+    background-color: transparent; /* Your existing background color */
+    display: flex; /* Use flexbox for better layout control */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    padding: 2rem; /* Add padding to prevent content from touching edges */
+}
+
+.container{
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    margin: 240px auto;
+   
+}
+
+.container .box {
+    position: relative;
+    width: calc(400px - 30px);
+    height: calc(300px - 30px);
+    background-color: #1b1b1b;
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+
+
+.container .box .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+
+.container .box:hover .icon {
+    top:  20px;
+    left: calc(50% - 40px);
+    width: 80px;
+    height: 80px; 
+    border-radius: 50%;
+
+}
+
+.container .box .icon .fa-code
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.5s;
+    color: #ffff;
+
+}
+
+.container .box .icon .fa-camera
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.5s;
+    color: #ffff;
+
+}
+
+.container .box .icon .fa-pen-nib
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.5s;
+    color: #ffff;
+
+}
+
+.container .box .icon .fa-database
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.5s;
+    color: #ffff;
+
+}
+
+.container .box .icon .fa-laptop
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.5s;
+    color: #ffff;
+
+}
+
+.container .box .icon .fa-robot
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.5s;
+    color: #ffff;
+
+}
+
+
+
+.container .box:hover .isian {
+    top: 100px;
+    opacity: 1;
+    color: #ffff;
+
+}
+
+.container .box:hover .icon .fa-code
+{
+    font-size: 40px;
+}
+
+.container .box:hover .icon .fa-camera
+{
+    font-size: 40px;
+}
+
+.container .box:hover .icon .fa-laptop
+{
+    font-size: 40px;
+}
+
+.container .box:hover .icon .fa-robot
+{
+    font-size: 40px;
+}
+
+
+.container .box:hover .icon .fa-pen-nib
+{
+    font-size: 40px;
+}
+
+.container .box:hover .icon .fa-database
+{
+    font-size: 40px;
+}
+
+
+.container .box .isian {
+    position: absolute;
+    top: 100%;
+    
+    height: calc(100% - 100px);
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+
+.container .box .isian h3 {
+    margin-bottom: 20px; /* Memberikan jarak 20px di bawah h3 */
+    font-size: 24px;
+}
+
+
+.container .box .isian h3 {
+    margin-bottom: 20px; /* Memberikan jarak 20px di bawah h3 */
+    font-size: 24px;
+}
+
+
+.container h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #df5620, #da2e10, #ff9317, #fa6a6a, #ff0000);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.Project {
+    width: 100%;
+    height: 100vh;
+    background: rgb(150,17,17);
+    background: linear-gradient(0deg, rgb(83, 16, 16) 0%, rgba(14,14,14,1) 100%);
+    background-size:cover ;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.slider-images {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+}
+
+
+.slider-images img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+.slider-img {
+    width: 100px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.7s ease;
+}
+
+.slider-images .slider-img:first-child, .slider-images .slider-img:last-child {
+    height: 250px;
+
+}
+
+
+.slider-images .slider-img:nth-child(2), .slider-images .slider-img:nth-child(12) {
+    height: 360px;
+    
+}
+
+
+.slider-images .slider-img:nth-child(3), .slider-images .slider-img:nth-child(4), .slider-images .slider-img:nth-child(5) , .slider-images .slider-img:nth-child(6), .slider-images .slider-img:nth-child(7), .slider-images .slider-img:nth-child(8
+    ), .slider-images .slider-img:nth-child(9), .slider-images .slider-img:nth-child(10), .slider-images .slider-img:nth-child(11) {
+    height: 500px;
+    
+}
+
+.slider-img h1 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    color: #990b0b;
+    position: absolute;
+    top: 50%;
+    left: -40%;
+    transform: rotate(270deg);
+    transition: 0.7 ease;
+
+}
+
+.slider-img:nth-child(5) h1 {
+    left: -65%;
+}
+
+.slider-img:nth-child(2) h1 {
+    left: -70%;
+}
+
+.slider-img:nth-child(3) h1 {
+    left: -55%;
+}
+
+.slider-img:nth-child(4) h1 {
+    left: -95%;
+}
+
+.slider-img:nth-child(6) h1 {
+    left: -90%;
+}
+
+.slider-img:nth-child(7) h1 {
+    left: -95%;
+}
+
+.slider-img:nth-child(8) h1 {
+    left: -35%;
+}
+
+.slider-img:nth-child(9) h1 {
+    left: -50%;
+}
+
+.slider-img:nth-child(10) h1 {
+    left: -120%;
+}
+
+
+.slider-img:nth-child(11) h1 {
+    left: -70%;
+}
+
+.slider-img:nth-child(12) h1 {
+    left: -60%;
+}
+
+.slider-img:nth-child(13) h1 {
+    left: -30%;
+}
+
+
+.details {
+    position: absolute;
+    bottom: 43px;
+    left: 43px;
+}
+
+.details h2 {
+    font-size: 23px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 44px;
+    text-align: left;
+    color: rgb(255, 0, 0);
+    text-transform: uppercase;
+    transition: 0.7s ease;
+    display: none;
+}
+
+
+.details p {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    line-height: 33px;
+    text-align: left;
+    color: rgb(255, 123, 0);
+    text-transform: uppercase;
+    transition: 0.7s ease;
+    display: none;
+}
+
+
+.slider-img:hover {
+    width: 500px !important;
+    height: 500px !important;
+    
+}
+
+.slider-img:hover h1 {
+    opacity: 0; /* This will make the text invisible */
+    transition: opacity 0.3s ease; /* Optional: Add a transition for a smooth effect */
+}
+
+.slider-img:hover .details h2,
+.slider-img:hover .details p {
+    display: block;
+}
+
+.project-file {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #df5620, #da2e10, #ff9317, #fa6a6a, #ff0000);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 50px; /* Menambahkan margin atas untuk membuatnya lebih kebawah */
+}
+
+.Achievement {
+    background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(83, 16, 16) 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+}
+
+.scroll{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+.speed{
+    position: absolute;
+    width: 550px;
+    height: 400px;
+    text-align: justify;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.5s;
+    left: calc(50% - 270px); /* Decrease this value to move it left */
+    top: 0;
+    
+}
+#next, #prev{
+    position: absolute;
+    top: 40%;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    left: 400px;
+}
+#next{
+    left: unset;
+    right: 400px;
+}
+
+.speed img {
+    position: absolute; /* Position the image absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Make the image fill the width of the container */
+    height: 100%; /* Make the image fill the height of the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+    border-radius: 10px;
+}
+
+
+
+
+
+.speed img {
+    position: absolute; /* Position the image absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Make the image fill the width of the container */
+    height: 100%; /* Make the image fill the height of the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+    border-radius: 10px;
+}
+
+
+.speed.vertical{
+    width: 400px;
+    height: 520px;
+    left: calc(50% - 200px); 
+}
+
+.speed h1 {
+    z-index: 2;
+}
+
+
+.judul_ach {
+    font-size: 40px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #df2020, #da2e10, #b41d1d, #f03e3e, #ff0000);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    text-align: center;
+    margin-bottom: 30px;
+    z-index: 1; /* Ensure it's on top */
+}
+
+
+
+
+/* Contact Section */
+.Contact {
+    background-color: #000000;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.Contact h1 {
+      font-size: 40px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #df2020, #da2e10, #b41d1d, #f03e3e, #ff0000);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    text-align: center;
+    margin-bottom: 30px;
+    z-index: 1; /* Ensure it's on top */
+}
+
+/* Form Styling */
+.form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #030303;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #921e1e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3b0707;
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+form input, form textarea {
+    font-family: 'Arial', sans-serif;
+}
